@@ -17,8 +17,8 @@ function turnRandomCellRed() {
         cell.classList.remove("monster");
     });
     let rndNum = Math.floor(Math.random() * cellsArr.length);
-    const cell = document.querySelectorAll('.cell')[rndNum];
-    cell.classList.add("monster");
+    const cell = document.querySelectorAll('.cell');
+    cell[rndNum].classList.add("monster");
 }
 
 // Function to handle cell click
