@@ -14,16 +14,16 @@ let points = 0;
 function turnRandomCellRed() {
     const cells = document.querySelectorAll('.cell')
     cells.forEach(cell => {
-        cell.classList.remove("red");
+        cell.classList.remove("monster");
     });
     let rndNum = Math.floor(Math.random() * cellsArr.length);
     const cell = document.querySelectorAll('.cell')[rndNum];
-    cell.classList.add("red");
+    cell.classList.add("monster");
 }
 
 // Function to handle cell click
 function handleCellClick(event) {
-    if (event.target.classList.contains("red")) {
+    if (event.target.classList.contains("monster")) {
         points++;
         pointsHTML.textContent = `Points: ${points}`;
     }
@@ -33,7 +33,10 @@ function handleCellClick(event) {
 cellsArr.forEach((cell, index) => {
     const div = document.createElement("div");
     div.className = "cell";
-    div.addEventListener("click", handleCellClick);
+    div.onclick=(event) => {
+        handleCellClick(event)
+    }
+    // div.addEventListener("click", handleCellClick);
     gameContainer.appendChild(div);
 });
 
